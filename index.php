@@ -336,6 +336,14 @@ include "koneksi.php";
               </ul>
             </div>
           </div>
+          <div class="col">
+            <div class="card h-100">
+              <div class="card-header bg-danger text-white">MINGGU</div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">FREE</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
