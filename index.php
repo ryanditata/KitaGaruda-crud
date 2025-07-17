@@ -201,7 +201,7 @@ include "koneksi.php";
           <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98w-lvyu0wsqdnul05@resize_w900_nl.webp" class="card-img-top" alt="Gambar 1 Store">
           <div class="card-body">
             <h5 class="card-title">Garuda Store - Player 12 Jersey Merah</h5>
-            <a href="https://shopee.co.id/Garuda-Store-Player-12-Jersey-Merah-i.391837434.25026207645" class="btn bg-danger text-white">Buy Now</a>
+            <a href="https://shopee.co.id/Garuda-Store-Player-12-Jersey-Merah-i.391837434.25026207645" class="btn bg-danger text-white rounded-pill">Buy Now</a>
           </div>
         </div>
       </div>
@@ -210,7 +210,7 @@ include "koneksi.php";
           <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98y-lws9ohibg5jy1d@resize_w900_nl.webp" class="card-img-top" alt="Gambar 2 Store">
           <div class="card-body">
             <h5 class="card-title">Garuda Store - E-Money Spesial Edition Timnas</h5>
-            <a href="https://shopee.co.id/Garuda-Store-E-Money-Spesial-Edition-Timnas-i.391837434.25282516175?sp_atk=09853e03-8b81-473d-89c2-2d821e3dbd7f" class="btn bg-danger text-white">Buy Now</a>
+            <a href="https://shopee.co.id/Garuda-Store-E-Money-Spesial-Edition-Timnas-i.391837434.25282516175?sp_atk=09853e03-8b81-473d-89c2-2d821e3dbd7f" class="btn bg-danger text-white rounded-pill">Buy Now</a>
           </div>
         </div>
       </div>
@@ -219,7 +219,7 @@ include "koneksi.php";
           <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98y-lwxsfhacv8ym10@resize_w900_nl.webp" class="card-img-top" alt="Gambar 3 Store">
           <div class="card-body">
             <h5 class="card-title">Garuda Store - Jersey Training Red-Black</h5>
-            <a href="https://shopee.co.id/Garuda-Store-Jersey-Training-Red-Black-i.391837434.29453667543" class="btn bg-danger text-white">Buy Now</a>
+            <a href="https://shopee.co.id/Garuda-Store-Jersey-Training-Red-Black-i.391837434.29453667543" class="btn bg-danger text-white rounded-pill">Buy Now</a>
           </div>
         </div>
       </div>
@@ -228,7 +228,7 @@ include "koneksi.php";
           <img src="https://down-id.img.susercontent.com/file/id-11134207-7r990-lvyu0wsq589q04@resize_w900_nl.webp" class="card-img-top" alt="Gambar 4 Store">
           <div class="card-body">
             <h5 class="card-title">Garuda Store - Tshirt player 12 Merah</h5>
-            <a href="https://shopee.co.id/Garuda-Store-Tshirt-player-12-Merah-i.391837434.25830262965" class="btn bg-danger text-white">Buy Now</a>
+            <a href="https://shopee.co.id/Garuda-Store-Tshirt-player-12-Merah-i.391837434.25830262965" class="btn bg-danger text-white rounded-pill">Buy Now</a>
           </div>
         </div>
       </div>
