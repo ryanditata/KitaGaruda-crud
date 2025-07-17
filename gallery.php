@@ -1,7 +1,7 @@
 <div class="container bg-white" style="position: relative; top: -16px;"><hr>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-secondary mb-3" data-bs-toggle="modal" data-bs-target="#modalTambah">
-    <i class="bi bi-plus-circle"></i> Tambah Gallery
+    <button type="button" class="btn btn-dark mb-3 fw-semibold rounded-pill" data-bs-toggle="modal" data-bs-target="#modalTambah">
+    <i class="bi bi-plus-circle"></i> Gallery
     </button>
     <div class="row">
         <div class="table-responsive" id="gallery_data">  
@@ -23,8 +23,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <input type="submit" value="Simpan" name="simpan" class="btn btn-success">
+                    <button type="button" class="btn btn-secondary fw-semibold rounded-pill" data-bs-dismiss="modal">Batal</button>
+                    <input type="submit" value="Simpan" name="simpan" class="btn btn-success fw-semibold rounded-pill">
                 </div>
             </form>
         </div>

@@ -67,8 +67,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <label for="password" class="form-label">Password Baru</label>
               <input type="password" class="form-control" id="password" name="password" placeholder="Kosongkan jika tidak ingin mengubah">
             </div>
-            <button type="submit" class="btn btn-primary mb-5">Simpan</button>
-            <a href="admin.php" class="btn btn-secondary mb-5">Batal</a>
+            <a href="admin.php" class="btn btn-secondary mb-5 fw-semibold rounded-pill">Batal</a>
+            <button type="submit" class="btn btn-success mb-5 fw-semibold rounded-pill">Simpan</button>
           </form>
         </div>
       </div>

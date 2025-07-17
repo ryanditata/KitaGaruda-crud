@@ -12,8 +12,22 @@ include "koneksi.php";
     <link rel="icon" href="img/icone.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+    .theme-dropdown .dropdown-item.active, 
+    .theme-dropdown .dropdown-item:active {
+      background-color: #dc3545 !important;
+      color: white !important;
+    }
+
+    .theme-dropdown .dropdown-item.active i,
+    .theme-dropdown .dropdown-item:active i {
+      opacity: 1 !important;
+    }
+  </style>
+
   </head>
-<body id="home" class="bg-secondary bg-opacity-10">
+<body class="bg-secondary bg-opacity-10">
     
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg shadow-sm fixed-top" style="background-color: var(--bs-body-bg);">
@@ -25,7 +39,7 @@ include "koneksi.php";
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#home">Home</a>
+          <a class="nav-link" href="#home">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#berita">Berita</a>
@@ -46,31 +60,32 @@ include "koneksi.php";
           <a class="nav-link" href="login.php">Login</a>
         </li>
 
-        <li class="nav-item dropdown border-start border-secondary-subtle">
-          <button class="btn nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-circle-half theme-icon-active" data-theme-icone-active="bi-circle-half"></i>
-          </button>
-          <ul class="dropdown-menu dropdown-menu-end">
-            <li>
-              <button class="dropdown-item d-flex align-items-center" type="button" data-bs-theme-value="light">
-              <i class="bi bi-sun-fill me-2 opacity-50" data-theme-icone="bi-sun-fill"></i>
-              Light
-              </button>
-            </li>
-            <li>
-              <button class="dropdown-item d-flex align-items-center" type="button" data-bs-theme-value="dark">
-              <i class="bi-moon-stars-fill me-2 opacity-50" data-theme-icone="bi-moon-stars-fill"></i>
-              Dark
-              </button>
-            </li>
-             <li>
-              <button class="dropdown-item d-flex align-items-center" type="button" data-bs-theme-value="auto">
-              <i class="bi bi-circle-half me-2 opacity-50" data-theme-icone="bi-circle-half"></i>
-              Auto
-              </button>
-            </li>
-          </ul>
-        </li>
+<li class="nav-item dropdown border-start border-secondary-subtle">
+  <button class="btn nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <i id="theme-icon" class="bi bi-circle-half theme-icon-active"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end theme-dropdown">
+    <li>
+      <button class="dropdown-item d-flex align-items-center" type="button" data-bs-theme-value="light">
+        <i class="bi bi-sun-fill me-2 opacity-50"></i>
+        Light
+      </button>
+    </li>
+    <li>
+      <button class="dropdown-item d-flex align-items-center" type="button" data-bs-theme-value="dark">
+        <i class="bi bi-moon-stars-fill me-2 opacity-50"></i>
+        Dark
+      </button>
+    </li>
+    <li>
+      <button class="dropdown-item d-flex align-items-center" type="button" data-bs-theme-value="auto">
+        <i class="bi bi-circle-half me-2 opacity-50"></i>
+        Auto
+      </button>
+    </li>
+  </ul>
+</li>
+
       </ul>
     </div>
   </div>
@@ -78,7 +93,7 @@ include "koneksi.php";
 <!-- Akhir Navbar -->
 
 <!-- Jumbotron -->
-<section class="jumbotron text-center" style="margin-top: 76px;">
+<section id="home" class="jumbotron text-center" style="margin-top: 76px;">
   <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -420,45 +435,47 @@ include "koneksi.php";
     if (storedTheme) {
       return storedTheme
     }
-
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
   }
 
-  const setTheme = theme => {
-    if (theme === 'auto') {
-      document.documentElement.setAttribute('data-bs-theme', (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'))
+  const updateMainThemeIcon = (theme) => {
+    const icon = document.getElementById('theme-icon')
+    if (!icon) return
+
+    if (theme === 'light') {
+      icon.className = 'bi bi-sun-fill theme-icon-active'
+    } else if (theme === 'dark') {
+      icon.className = 'bi bi-moon-stars-fill theme-icon-active'
     } else {
-      document.documentElement.setAttribute('data-bs-theme', theme)
+      icon.className = 'bi bi-circle-half theme-icon-active'
     }
+  }
+
+  const setTheme = theme => {
+    let effectiveTheme = theme
+    if (theme === 'auto') {
+      effectiveTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    }
+    document.documentElement.setAttribute('data-bs-theme', effectiveTheme)
+    updateMainThemeIcon(theme)
   }
 
   setTheme(getPreferredTheme())
 
   const showActiveTheme = (theme, focus = false) => {
-    const themeSwitcher = document.querySelector('#bd-theme')
-
-    if (!themeSwitcher) {
-      return
-    }
-
-    const themeSwitcherText = document.querySelector('#bd-theme-text')
-    const activeThemeIcon = document.querySelector('.theme-icon-active use')
-    const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
-    const svgOfActiveBtn = btnToActive.querySelector('svg use').getAttribute('href')
-
     document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
       element.classList.remove('active')
       element.setAttribute('aria-pressed', 'false')
     })
 
+    const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+    if (!btnToActive) return
+
     btnToActive.classList.add('active')
     btnToActive.setAttribute('aria-pressed', 'true')
-    activeThemeIcon.setAttribute('href', svgOfActiveBtn)
-    const themeSwitcherLabel = `${themeSwitcherText.textContent} (${btnToActive.dataset.bsThemeValue})`
-    themeSwitcher.setAttribute('aria-label', themeSwitcherLabel)
 
     if (focus) {
-      themeSwitcher.focus()
+      btnToActive.focus()
     }
   }
 
@@ -470,17 +487,44 @@ include "koneksi.php";
   })
 
   window.addEventListener('DOMContentLoaded', () => {
-    showActiveTheme(getPreferredTheme())
+    const theme = getPreferredTheme()
+    setTheme(theme)
+    showActiveTheme(theme)
 
     document.querySelectorAll('[data-bs-theme-value]')
       .forEach(toggle => {
         toggle.addEventListener('click', () => {
-          const theme = toggle.getAttribute('data-bs-theme-value')
-          setStoredTheme(theme)
-          setTheme(theme)
-          showActiveTheme(theme, true)
+          const themeValue = toggle.getAttribute('data-bs-theme-value')
+          setStoredTheme(themeValue)
+          setTheme(themeValue)
+          showActiveTheme(themeValue, true)
         })
       })
+  })
+
+  document.addEventListener("DOMContentLoaded", function() {
+    let sections = document.querySelectorAll("section")
+    let navLinks = document.querySelectorAll(".nav-link")
+
+    window.addEventListener("scroll", () => {
+      let current = ""
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100
+        const sectionHeight = section.offsetHeight
+
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+          current = section.getAttribute("id")
+        }
+      })
+
+      navLinks.forEach(link => {
+        link.classList.remove("active")
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active")
+        }
+      })
+    })
   })
 })()
 </script>

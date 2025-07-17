@@ -42,8 +42,8 @@
               ?>
             </td>
             <td>
-              <a href="#" title="edit" class="text-success fs-5" data-bs-toggle="modal" data-bs-target="#modalEdit<?= $row["id"] ?>"><i class="bi bi-pencil-square"></i></a>
-              <a href="#" title="delete" class="text-danger fs-5" data-bs-toggle="modal" data-bs-target="#modalHapus<?= $row["id"] ?>"><i class="bi bi-x-circle"></i></a>
+              <a href="#" title="Edit" class="text-success fs-4" data-bs-toggle="modal" data-bs-target="#modalEdit<?= $row["id"] ?>"><i class="bi bi-pencil-square"></i></a>
+              <a href="#" title="Delete" class="text-danger fs-4" data-bs-toggle="modal" data-bs-target="#modalHapus<?= $row["id"] ?>"><i class="bi bi-x-circle"></i></a>
 
     <!-- Awal Modal Edit -->
     <div class="modal fade" id="modalEdit<?= $row["id"] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -83,8 +83,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <input type="submit" value="Simpan" name="simpan" class="btn btn-success">
+                    <button type="button" class="btn btn-secondary fw-semibold rounded-pill" data-bs-dismiss="modal">Batal</button>
+                    <input type="submit" value="Simpan" name="simpan" class="btn btn-success fw-semibold rounded-pill">
                 </div>
             </form>
         </div>
@@ -109,8 +109,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                    <input type="submit" value="Hapus" name="hapus" class="btn btn-danger">
+                    <button type="button" class="btn btn-secondary fw-semibold rounded-pill" data-bs-dismiss="modal">Batal</button>
+                    <input type="submit" value="Hapus" name="hapus" class="btn btn-danger fw-semibold rounded-pill">
                 </div>
             </form>
         </div>
@@ -166,3 +166,19 @@ $total_records = $hasil1->num_rows;
     ?>
     </ul>
 </nav>
+
+<style>
+.pagination .page-item.active .page-link {
+    background-color: black;
+    border-color: black;
+    color: #fff;
+}
+
+.pagination .page-link {
+    color: black;
+}
+
+.pagination .page-link:hover {
+    color: black;
+}
+</style>

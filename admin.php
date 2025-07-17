@@ -20,6 +20,11 @@ if (!isset($_SESSION['username'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body class="bg-secondary bg-opacity-10">
+
+<?php
+$current_page = $_GET['page'] ?? 'dashboard';
+?>
+
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg shadow-sm fixed-top" style="background-color: var(--bs-body-bg);">
   <div class="container">
@@ -30,13 +35,13 @@ if (!isset($_SESSION['username'])) {
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-                <a class="nav-link" href="admin.php?page=dashboard">Dashboard</a>
+                <a class="nav-link <?= ($current_page == 'dashboard') ? 'active text-balck' : '' ?>" href="admin.php?page=dashboard">Dashboard</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="admin.php?page=berita">Berita</a>
+                <a class="nav-link <?= ($current_page == 'berita') ? 'active text-balck' : '' ?>" href="admin.php?page=berita">Berita</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="admin.php?page=gallery">Gallery</a>
+                <a class="nav-link <?= ($current_page == 'gallery') ? 'active text-balck' : '' ?>" href="admin.php?page=gallery">Gallery</a>
             </li>
           <li class="nav-item dropdown border-start border-secondary-subtle">
             <button class="btn nav-link" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -50,9 +55,9 @@ if (!isset($_SESSION['username'])) {
                     <li class="fw-bold text-uppercase text-center mb-3">
                     <?= $_SESSION['username']?>
                     </li>
-                    <a class="bi bi-pencil ms-3 text-decoration-none text-black" href="admin.php?page=profile"> Edit Profile</a><br>
-                    <a class="bi bi-gear ms-3 text-decoration-none text-black" href=""> Pengaturan</a><br>
-                    <a class="bi bi-info-circle ms-3 text-decoration-none text-black" href=""> Help</a><br>
+                    <a class="bi bi-pencil ms-3 text-decoration-none text-black <?= ($current_page == 'profile') ? 'fw-bold' : '' ?>" href="admin.php?page=profile"> Edit Profile</a><br>
+                    <a class="bi bi-gear ms-3 text-decoration-none text-black" href="#"> Pengaturan</a><br>
+                    <a class="bi bi-info-circle ms-3 text-decoration-none text-black" href="#"> Help</a><br>
                     <hr>
                 </li>
                 <li>
@@ -61,10 +66,10 @@ if (!isset($_SESSION['username'])) {
                     </a>
                 </li>
             </ul>
-            </li> 
+          </li> 
         </ul>
     </div>
-    </div>
+  </div>
 </nav>
 <!-- Akhir Navbar -->
 
